@@ -1,0 +1,18 @@
+#donut {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  white-space: pre;
+  font-family: Consolas, monospace;
+  pointer-events: none;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background: none;
+}
