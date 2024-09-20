@@ -39,5 +39,6 @@ window.addEventListener("load", () => {
 });
 function is_april_fools() {
     let d = new Date();
-    return d.getDate() == 1 && d.getMonth() == 4;
+    return ((d.getDate() == 1 && d.getMonth() == 4) ||
+        new URLSearchParams(location.search).has("april_fools"));
 }
