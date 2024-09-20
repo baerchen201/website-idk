@@ -85,3 +85,16 @@ button.google {
 #amongus img {
   height: 100px;
 }
+
+img.funny {
+  position: fixed;
+  z-index: 69;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: all;
+  user-select: none;
+}
+audio.funny {
+  display: none;
+}
