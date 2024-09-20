@@ -2,6 +2,10 @@
   font-family: ubuntu_r; /* Ubutu:> */
   src: local("Ubuntu Regular"), url("Ubuntu-Font/Ubuntu-Regular.ttf");
 }
+@font-face {
+  font-family: ubuntu_l; /* Ubutul:> */
+  src: local("Ubuntu Light"), url("Ubuntu-Font/Ubuntu-Light.ttf");
+}
 
 html {
   display: flex;
@@ -18,9 +22,11 @@ body {
   width: fit-content;
   padding: 0 25px;
   color: #fff;
+  font-family: ubuntu_l, system-ui;
+}
+h2 {
   font-family: ubuntu_r, system-ui;
 }
-
 hr {
   width: 100%;
   margin: 20px 0;
