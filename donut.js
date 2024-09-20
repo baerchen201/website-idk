@@ -1,10 +1,10 @@
 // Based on https://www.a1k0n.net/js/donut.js
-// modified to work with my website
+// modified to work with any website
 
 (function () {
   var A = 1,
     B = 1;
-  var donut_node = document.getElementById("donut");
+  var donut_elements = document.getElementsByClassName("donut");
 
   var asciiframe = function () {
     var b = [];
@@ -47,7 +47,10 @@
         }
       }
     }
-    donut_node.innerHTML = b.join("");
+
+    for (let i = 0; i < donut_elements.length; i++) {
+      donut_elements[i].innerHTML = b.join("");
+    }
   };
   setInterval(asciiframe, 50);
 })();
