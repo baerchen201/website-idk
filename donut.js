@@ -1,56 +1,51 @@
 // Based on https://www.a1k0n.net/js/donut.js
-// modified to work with any website
+// modified to work with any website and to be easier to read
 
-(function () {
-  var A = 1,
-    B = 1;
-  var donut_elements = document.getElementsByClassName("donut");
+let A = 1,
+  B = 1;
+const donut_elements = document.getElementsByClassName("donut");
 
-  var asciiframe = function () {
-    var b = [];
-    var z = [];
-    A += 0.07;
-    B += 0.03;
-    var cA = Math.cos(A),
-      sA = Math.sin(A),
-      cB = Math.cos(B),
-      sB = Math.sin(B);
-    for (var k = 0; k < 1760; k++) {
-      b[k] = k % 80 == 79 ? "\n" : " ";
-      z[k] = 0;
-    }
-    for (var j = 0; j < 6.28; j += 0.07) {
-      // j <=> theta
-      var ct = Math.cos(j),
-        st = Math.sin(j);
-      for (i = 0; i < 6.28; i += 0.02) {
-        // i <=> phi
-        var sp = Math.sin(i),
-          cp = Math.cos(i),
-          h = ct + 2, // R1 + R2*cos(theta)
-          D = 1 / (sp * h * sA + st * cA + 5), // this is 1/z
-          t = sp * h * cA - st * sA; // this is a clever factoring of some of the terms in x' and y'
+setInterval(() => {
+  const out = [];
+  const z = [];
+  A += 0.07;
+  B += 0.03;
+  let cosA = Math.cos(A),
+    sinA = Math.sin(A),
+    cosB = Math.cos(B),
+    sinB = Math.sin(B);
+  for (let k = 0; k < 1760; k++) {
+    out[k] = k % 80 == 79 ? "\n" : " ";
+    z[k] = 0;
+  }
+  for (let theta = 0; theta < 6.28; theta += 0.07) {
+    let cosTheta = Math.cos(theta),
+      sinTheta = Math.sin(theta);
+    for (phi = 0; phi < 6.28; phi += 0.02) {
+      let sinPhi = Math.sin(phi),
+        cosPhi = Math.cos(phi),
+        h = cosTheta + 2, // R1 + R2*cos(theta)
+        D = 1 / (sinPhi * h * sinA + sinTheta * cosA + 5), // this is 1/z
+        t = sinPhi * h * cosA - sinTheta * sinA; // this is a clever factoring of some of the terms in x' and y'
 
-        var x = 0 | (40 + 30 * D * (cp * h * cB - t * sB)),
-          y = 0 | (12 + 15 * D * (cp * h * sB + t * cB)),
-          o = x + 80 * y,
-          N =
-            0 |
-            (8 *
-              ((st * sA - sp * ct * cA) * cB -
-                sp * ct * sA -
-                st * cA -
-                cp * ct * sB));
-        if (y < 22 && y >= 0 && x >= 0 && x < 79 && D > z[o]) {
-          z[o] = D;
-          b[o] = ".,-~:;=!*#$@"[N > 0 ? N : 0];
-        }
+      let x = 0 | (40 + 30 * D * (cosPhi * h * cosB - t * sinB)),
+        y = 0 | (12 + 15 * D * (cosPhi * h * sinB + t * cosB)),
+        o = x + 80 * y,
+        N =
+          0 |
+          (8 *
+            ((sinTheta * sinA - sinPhi * cosTheta * cosA) * cosB -
+              sinPhi * cosTheta * sinA -
+              sinTheta * cosA -
+              cosPhi * cosTheta * sinB));
+      if (y < 22 && y >= 0 && x >= 0 && x < 79 && D > z[o]) {
+        z[o] = D;
+        out[o] = ".,-~:;=!*#$@"[N > 0 ? N : 0];
       }
     }
+  }
 
-    for (let i = 0; i < donut_elements.length; i++) {
-      donut_elements[i].innerHTML = b.join("");
-    }
-  };
-  setInterval(asciiframe, 50);
-})();
+  for (let i = 0; i < donut_elements.length; i++) {
+    donut_elements[i].innerHTML = out.join("");
+  }
+}, 50);
