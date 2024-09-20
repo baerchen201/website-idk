@@ -10,9 +10,25 @@
     <h1>Hello, World!</h1>
     <hr />
 
+    <h2 class="google">Google</h2>
+    <input
+      type="text"
+      id="google"
+      class="google"
+      placeholder="Google something here idk ..."
+    />
+    <button
+      class="google"
+      onclick="document.getElementById('google').dispatchEvent(new KeyboardEvent('keypress',{key:'Enter'}))"
+    >
+      Search
+    </button>
+    <script src="js/index.js"></script>
+    <hr class="google" />
+
     <h2>Donut</h2>
     <div class="donut"></div>
-    <script src="donut.js"></script>
+    <script src="js/donut.js"></script>
     <hr />
 
     <h2>Among us</h2>
