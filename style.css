@@ -25,18 +25,22 @@ body {
   align-items: center;
 }
 #amongus > div {
-  min-height: 50px;
+  min-height: 100px;
   min-width: 150px;
   background: #000;
   padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 24px;
+  flex-direction: column;
 }
 #amongus a {
   font-size: x-large;
   color: #fff;
   text-decoration: none;
   font-style: italic;
+}
+#amongus img {
+  height: 100px;
 }
