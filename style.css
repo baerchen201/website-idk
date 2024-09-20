@@ -1,7 +1,4 @@
 #donut {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
   white-space: pre;
   font-family: Consolas, monospace;
   pointer-events: none;
@@ -9,9 +6,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: fit-content;
+}
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #171718;
 }
 body {
-  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #000a;
+  width: fit-content;
+  padding: 0 25px;
   color: #fff;
 }
 
