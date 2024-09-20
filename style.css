@@ -13,6 +13,7 @@ body {
   width: fit-content;
   padding: 0 25px;
   color: #fff;
+  font-family: "Comic Sans MS", "Papyrus", "MS Gothic", monospace, system-ui;
 }
 
 hr {
