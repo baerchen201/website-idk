@@ -1,4 +1,4 @@
-# Website (idk)
+# [Website (idk)](https://baerchen201.github.io/website-idk/)
 
 ### Why does this website exist?
 
