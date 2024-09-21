@@ -34,7 +34,8 @@ hr {
 
 #google {
   width: 100%;
-  font-size: x-large;
+  font-size: 1em;
+  font-family: ubuntu_r, system-ui;
   padding: 10px 5px;
   border-radius: 20px;
   margin-bottom: 8px;
