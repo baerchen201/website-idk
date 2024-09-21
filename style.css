@@ -149,6 +149,14 @@ button.google {
   height: 100px;
 }
 
+#asciiamongus {
+  display: flex;
+  flex-direction: column;
+}
+#asciiamongus > span {
+  white-space: pre;
+}
+
 img.funny {
   position: fixed;
   z-index: 69;
