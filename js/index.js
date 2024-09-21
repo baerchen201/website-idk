@@ -36,6 +36,13 @@ window.addEventListener("load", () => {
             });
         }
     });
+    // Change all links to open in new tabs unless specified otherwise
+    let links = document.getElementsByTagName("a");
+    for (let i = 0; i < links.length; i++) {
+        const e = links[i];
+        if (!e.target)
+            e.target = "_blank";
+    }
     let videos = document.getElementById("videos");
     if (videos.children.length % 2 != 0)
         videos.classList.add("odd");
