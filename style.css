@@ -75,8 +75,8 @@ button.google {
   transform: translateX(-5px);
 }
 #videos > a {
-  display: grid;
   --c-img-size: 60px;
+  display: grid;
   grid-template-columns: var(--c-img-size) calc(100% - var(--c-img-size));
   grid-template-rows: 220px 30px 30px;
   grid-template-areas:
