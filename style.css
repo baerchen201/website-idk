@@ -64,6 +64,7 @@ button.google {
   justify-content: center;
   align-items: center;
   width: fit-content;
+  flex-direction: column;
 }
 
 #videos {
