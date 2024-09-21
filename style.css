@@ -71,6 +71,8 @@ button.google {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-auto-rows: 290px;
+  column-gap: 10px;
+  transform: translateX(-5px);
 }
 #videos > * {
   display: grid;
