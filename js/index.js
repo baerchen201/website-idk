@@ -36,6 +36,17 @@ window.addEventListener("load", () => {
             });
         }
     });
+    let videos = document.getElementById("videos");
+    if (videos.children.length % 2 != 0)
+        videos.classList.add("odd");
+    let _v = videos.children;
+    for (let i = 0; i < _v.length; i++) {
+        const video = _v[i];
+        let _i = video.getElementsByTagName("img");
+        let thumbnail = _i[0], channel_image = _i[1];
+        thumbnail.alt = "< Video Thumbnail >";
+        channel_image.alt = "< Channel icon >";
+    }
 });
 function is_april_fools() {
     let d = new Date();
