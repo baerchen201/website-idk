@@ -158,7 +158,7 @@ button.google {
   transition: opacity 150ms ease-in;
 }
 #music > a.yt::after {
-  background-image: url(/img/yt_icon_rgb.svg);
+  background-image: url(img/yt_icon_rgb.svg);
 }
 #music > a.yt:hover::after {
   opacity: 1;
