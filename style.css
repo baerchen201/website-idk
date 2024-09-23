@@ -6,7 +6,6 @@
   font-family: ubuntu_l; /* Ubutul:> */
   src: local("Ubuntu Light"), url("Ubuntu-Font/Ubuntu-Light.ttf");
 }
-/* I'm totally doing this wrong, importing each weight separately, but idc, it works for me. */
 @font-face {
   font-family: roboto_r;
   src: local("Roboto Regular"), url("Roboto-Font/Roboto-Regular.ttf");
