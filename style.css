@@ -67,15 +67,7 @@ button.google {
   flex-direction: column;
 }
 
-#videos {
-  width: 750px;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-auto-rows: 290px;
-  column-gap: 10px;
-  transform: translateX(-5px);
-}
-#videos > a {
+youtube-video > a {
   --c-img-size: 60px;
   display: grid;
   grid-template-columns: var(--c-img-size) calc(100% - var(--c-img-size));
@@ -89,31 +81,40 @@ button.google {
   font-family: roboto_r, system-ui;
   text-decoration: none;
 }
-#videos > a > img:nth-of-type(1) {
+youtube-video > a > img:nth-of-type(1) {
   width: 100%;
   height: 220px;
   grid-area: thumb;
 }
-#videos > a > img:nth-of-type(2) {
+youtube-video > a > img:nth-of-type(2) {
   width: calc(100% - 10px);
   height: calc(100% - 10px);
   border-radius: 100%;
   transform: translate(2.5px, 5px);
   grid-area: c-img;
 }
-#videos > a > span:nth-of-type(1) {
+youtube-video > a > span:nth-of-type(1) {
   font-size: 20px;
   grid-area: title;
   font-family: roboto_b;
 }
-#videos > a > span:nth-of-type(2) {
+youtube-video > a > span:nth-of-type(2) {
   font-size: 14px;
   display: flex;
   align-items: end;
   grid-area: c-nam;
   color: #f00;
 }
-#videos.odd > a:last-child {
+
+#videos {
+  width: 750px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-auto-rows: 290px;
+  column-gap: 10px;
+  transform: translateX(-5px);
+}
+#videos.odd > *:last-child {
   grid-column: 1 / 3;
 
   width: 50%;
