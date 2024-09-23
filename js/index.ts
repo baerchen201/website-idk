@@ -20,8 +20,8 @@ class youtubeVideo extends HTMLElement {
       throw new Error(
         `Empty attribute data-id for youtube-video object ${this}`
       );
-    if (!data_thumbnail) data_thumbnail = "img/youtube-thumbnail.jpg";
-    if (!data_channel_icon) data_channel_icon = "img/youtube-channel-icon.webp";
+    if (!data_thumbnail) data_thumbnail = "img/youtube-thumbnail.svg";
+    if (!data_channel_icon) data_channel_icon = "img/youtube-channel-icon.svg";
     if (!data_title) data_title = "";
     if (!data_channel) data_channel = "";
 
