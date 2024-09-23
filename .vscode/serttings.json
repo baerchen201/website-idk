@@ -1,1 +1,5 @@
-{ "editor.formatOnSave": true, "vscord.app.privacyMode.enable": false }
+{
+  "editor.formatOnSave": true,
+  "vscord.app.privacyMode.enable": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
