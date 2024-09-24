@@ -105,7 +105,7 @@ window.addEventListener("load", () => {
 
       let img = document.createElement("img");
       img.src = "img/Red_Amogus.png";
-      img.classList.add("funny");
+      img.classList.add("jumpscare");
 
       aud.addEventListener("ended", () => {
         try {

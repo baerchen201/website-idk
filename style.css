@@ -228,15 +228,12 @@ youtube-track > a > span:nth-of-type(2) {
   content: "✔";
 }
 
-img.funny {
+.jumpscare {
   position: fixed;
-  z-index: 69;
+  z-index: 65535;
   inset: 0;
   height: 100%;
   width: 100%;
   pointer-events: all;
   user-select: none;
-}
-audio.funny {
-  display: none;
 }
