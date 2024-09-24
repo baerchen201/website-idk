@@ -111,7 +111,7 @@
     </div>
     <hr />
 
-    <h2>Among us</h2>
+    <h2>Amongus</h2>
     <img
       src="img/Red_Amogus.png"
       alt="< [Red amongus] Get Among Us >"
@@ -122,7 +122,7 @@
       <div>
         <h1
           style="
-            font-family: amogus_r;
+            font-family: amogus;
             letter-spacing: 3px;
             font-weight: 500;
             font-size: 250%;
@@ -162,8 +162,8 @@
     </div>
     <hr />
 
-    <h2>Among Us 2</h2>
-    <div id="asciiamongus">
+    <h2>Textmongus</h2>
+    <div id="textmongus">
       <span> ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣤⣤⣶⣦⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀ </span
       ><span> ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡿⠛⠉⠙⠛⠛⠛⠛⠻⢿⣿⣷⣤⡀⠀⠀⠀⠀⠀ </span
       ><span> ⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⠋⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠈⢻⣿⣿⡄⠀⠀⠀⠀ </span
@@ -184,9 +184,21 @@
       ><span> ⠀⠀⠀⠀⠀⠀⠀⢿⣿⣦⣄⣀⣠⣴⣿⣿⠁⠀⠈⠻⣿⣿⣿⣿⡿⠏⠀⠀⠀⠀ </span
       ><span> ⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⠿⠿⠿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</span>
     </div>
-    <h3 style="font-family: Consolas, monospace">
+    <button
+      class="textmongus-copy"
+      onclick="navigator.clipboard.writeText(document.getElementById('textmongus').innerText);this.disabled=true;setTimeout(()=>{this.disabled=false},1500)"
+    >
+      Copy Unicode Art
+    </button>
+    <h3 style="font-family: Consolas, monospace; margin-bottom: 0">
       ඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞ
     </h3>
+    <button
+      class="textmongus-copy"
+      onclick="navigator.clipboard.writeText('ඞ');this.disabled=true;setTimeout(()=>{this.disabled=false},1000)"
+    >
+      Copy ඞ
+    </button>
     <hr />
 
     <h2>Visual Studio Code</h2>

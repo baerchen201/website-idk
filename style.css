@@ -15,7 +15,7 @@
   src: local("Roboto Bold"), url("font/Roboto/Roboto-Bold.ttf");
 }
 @font-face {
-  font-family: amogus_r;
+  font-family: amogus;
   src: url("font/In-your-face-joffrey.ttf");
 }
 
@@ -196,12 +196,36 @@ youtube-track > a > span:nth-of-type(2) {
   width: 335px;
 }
 
-#asciiamongus {
+#textmongus {
   display: flex;
   flex-direction: column;
 }
-#asciiamongus > span {
+#textmongus > span {
   white-space: pre;
+}
+.textmongus-copy {
+  font-family: amogus, roboto_b, ubuntu_r, system-ui;
+  font-size: x-large;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  position: relative;
+}
+.textmongus-copy:disabled {
+  color: #0000;
+}
+.textmongus-copy:disabled::before {
+  content: "✔ Copied";
+  position: absolute;
+  inset: -2px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+}
+.textmongus-copy:nth-last-of-type(1):disabled::before {
+  content: "✔";
 }
 
 img.funny {
