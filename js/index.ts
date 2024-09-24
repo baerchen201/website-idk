@@ -104,7 +104,7 @@ window.addEventListener("load", () => {
       document.body.appendChild(aud);
 
       let img = document.createElement("img");
-      img.src = "img/an871k4o1sn51.png";
+      img.src = "img/Red_Amogus.png";
       img.classList.add("funny");
 
       aud.addEventListener("ended", () => {
