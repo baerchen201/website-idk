@@ -43,8 +43,48 @@ class youtubeVideo extends HTMLElement {
     anchor.appendChild(channel);
   }
 }
+class youtubeTrack extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    let image: HTMLImageElement = document.createElement("img");
+    let title: HTMLSpanElement = document.createElement("span");
+    let composer: HTMLSpanElement = document.createElement("span");
+
+    let data_id: string | null = this.getAttribute("data-id");
+    let data_image: string | null = this.getAttribute("data-image");
+    let data_title: string | null = this.getAttribute("data-title");
+    let data_composer: string | null = this.getAttribute("data-composer");
+
+    if (!data_id)
+      throw new Error(
+        `Empty attribute data-id for youtube-track object ${this}`
+      );
+    if (!data_image) data_image = "img/youtube-thumbnail.svg"; //TODO: Replace with proper default image/album-art
+    if (!data_title) data_title = "";
+    if (!data_composer) data_composer = "";
+
+    let anchor: HTMLAnchorElement = document.createElement("a");
+    anchor.href = `https://youtu.be/${data_id}`;
+    anchor.title = `Listen to ${data_title ? data_title : "track"} on YouTube`;
+    this.appendChild(anchor);
+
+    image.src = data_image
+      .replace("%id", data_id)
+      .replace("%s", `https://img.youtube.com/vi/${data_id}/`);
+    title.innerText = data_title;
+    composer.innerText = data_composer;
+
+    anchor.appendChild(image);
+    anchor.appendChild(title);
+    anchor.appendChild(composer);
+  }
+}
 
 window.customElements.define("youtube-video", youtubeVideo);
+window.customElements.define("youtube-track", youtubeTrack);
 
 window.addEventListener("load", () => {
   document.getElementById("google")!.addEventListener("keypress", (e) => {

@@ -121,7 +121,6 @@ youtube-video > a > span:nth-of-type(2) {
 }
 
 #music {
-  --cover-size: 100px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -130,7 +129,9 @@ youtube-video > a > span:nth-of-type(2) {
   background: #282829;
   padding: 8px;
 }
-#music > a {
+
+youtube-track > a {
+  --cover-size: 100px;
   display: grid;
   grid-template-columns: var(--cover-size) calc(100% - var(--cover-size));
   grid-template-rows: repeat(2, calc(var(--cover-size) / 2));
@@ -144,19 +145,19 @@ youtube-video > a > span:nth-of-type(2) {
   text-decoration: none;
   font-family: roboto_r;
 }
-#music > a > img {
+youtube-track > a > img {
   grid-row: 1 / 3;
   width: 100%;
 }
-#music > a > span {
+youtube-track > a > span {
   display: flex;
   height: 100%;
 }
-#music > a > span:nth-of-type(1) {
+youtube-track > a > span:nth-of-type(1) {
   align-items: end;
   font-size: x-large;
 }
-#music > a > span:nth-of-type(2) {
+youtube-track > a > span:nth-of-type(2) {
   align-items: start;
   color: #bbb;
 }
