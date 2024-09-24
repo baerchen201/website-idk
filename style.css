@@ -1,22 +1,22 @@
 @font-face {
   font-family: ubuntu_r; /* Ubutu:> */
-  src: local("Ubuntu Regular"), url("Ubuntu-Font/Ubuntu-Regular.ttf");
+  src: local("Ubuntu Regular"), url("font/Ubuntu/Ubuntu-Regular.ttf");
 }
 @font-face {
   font-family: ubuntu_l; /* Ubutul:> */
-  src: local("Ubuntu Light"), url("Ubuntu-Font/Ubuntu-Light.ttf");
+  src: local("Ubuntu Light"), url("font/Ubuntu/Ubuntu-Light.ttf");
 }
 @font-face {
   font-family: roboto_r;
-  src: local("Roboto Regular"), url("Roboto-Font/Roboto-Regular.ttf");
+  src: local("Roboto Regular"), url("font/Roboto/Roboto-Regular.ttf");
 }
 @font-face {
   font-family: roboto_b;
-  src: local("Roboto Bold"), url("Roboto-Font/Roboto-Bold.ttf");
+  src: local("Roboto Bold"), url("font/Roboto/Roboto-Bold.ttf");
 }
 @font-face {
   font-family: amogus_r;
-  src: url("in_your_face_joffrey/In your face, joffrey!.ttf");
+  src: url("font/In-your-face-joffrey.ttf");
 }
 
 html {
