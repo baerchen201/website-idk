@@ -18,6 +18,10 @@
   font-family: amogus;
   src: url("font/In-your-face-joffrey.ttf");
 }
+@font-face {
+  font-family: google_r;
+  src: url("font/Google-Sans/GoogleSans-Regular.ttf");
+}
 
 html {
   display: flex;
@@ -236,4 +240,16 @@ youtube-track > a > span:nth-of-type(2) {
   width: 100%;
   pointer-events: all;
   user-select: none;
+}
+
+.crash {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 65534;
+}
+video.crash,
+._.crash {
+  display: none;
 }
