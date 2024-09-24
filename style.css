@@ -14,6 +14,10 @@
   font-family: roboto_b;
   src: local("Roboto Bold"), url("Roboto-Font/Roboto-Bold.ttf");
 }
+@font-face {
+  font-family: amogus_r;
+  src: url("in_your_face_joffrey/In your face, joffrey!.ttf");
+}
 
 html {
   display: flex;
@@ -189,7 +193,7 @@ youtube-track > a > span:nth-of-type(2) {
   font-style: italic;
 }
 #amongus img {
-  height: 100px;
+  width: 335px;
 }
 
 #asciiamongus {
