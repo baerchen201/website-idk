@@ -34,13 +34,13 @@ class AmongUsStar extends HTMLElement {
     }
     blink(fadein, duration, fadeout) {
         return new Promise((resolve, reject) => {
-            this.animate([{ opacity: "0" }, { opacity: "1" }], {
+            this.animate([{ transform: "scale(0.1)" }, { transform: "none" }], {
                 easing: "ease-out",
                 duration: fadein,
                 fill: "forwards",
             }).addEventListener("finish", () => {
                 setTimeout(() => {
-                    this.animate([{ opacity: "1" }, { opacity: "0" }], {
+                    this.animate([{ transform: "none" }, { transform: "scale(0.1)" }], {
                         easing: "ease-out",
                         duration: fadeout,
                         fill: "forwards",
