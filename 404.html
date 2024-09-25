@@ -53,8 +53,35 @@
     >
       <span style="font-size: 100px; font-weight: 900">404</span>
       <span style="font-size: 70px; font-weight: 600">not foun</span>
-      <a href="index.html" style="font-size: 60px; color: rgb(238, 0, 218)"
-        >back to main</a
+      <a
+        href="index.html"
+        style="
+          --color: rgb(238, 0, 218);
+          font-size: 60px;
+          color: var(--color);
+          text-decoration: none;
+        "
+      >
+        &lt;
+        <span
+          style="
+            background: linear-gradient(
+              to right,
+              #f0f,
+              #f00,
+              #ff0,
+              #0f0,
+              #0ff,
+              #00f,
+              #f0f
+            );
+            -webkit-text-fill-color: transparent;
+            background-clip: none;
+            -webkit-background-clip: text;
+          "
+        >
+          back to main</span
+        ></a
       >
     </span>
   </body>
