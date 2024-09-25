@@ -144,6 +144,7 @@ window.addEventListener("load", () => {
             emoji.classList.remove("lock");
         }, 500);
     });
+    emoji.dispatchEvent(new MouseEvent("click", {}));
 });
 function is_april_fools() {
     let d = new Date();
