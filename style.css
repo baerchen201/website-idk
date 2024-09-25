@@ -242,14 +242,21 @@ youtube-track > a > span:nth-of-type(2) {
   user-select: none;
 }
 
-.crash {
+.nuke,
+.nuke * {
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+}
+.nuke #nuke {
+  display: initial !important;
+}
+#nuke {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 65534;
-}
-video.crash,
-._.crash {
-  display: none;
+  object-fit: fill;
+  z-index: 65536;
+  pointer-events: all;
 }
