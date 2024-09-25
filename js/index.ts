@@ -146,13 +146,21 @@ window.addEventListener("load", () => {
   }
 
   let emoji = document.getElementById("emoji") as HTMLImageElement;
+  let _emoji_lock = false;
   emoji.addEventListener("click", () => {
+    if (_emoji_lock) return;
     let col: string = rand_choice(EMOJI_COLORS),
       n: string = rand_choice(EMOJI_NAMES);
     emoji.src = `bluemoji/${col}/${n}.png`;
     emoji.alt = `< [${col.toUpperCase()} - ${
       n.charAt(0).toUpperCase() + n.replace(/-/g, " ").substring(1)
     }] Emoji Shuffler >`;
+    _emoji_lock = true;
+  });
+  emoji.addEventListener("load", () => {
+    setTimeout(() => {
+      _emoji_lock = false;
+    }, 500);
   });
 });
 

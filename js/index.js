@@ -131,10 +131,19 @@ window.addEventListener("load", () => {
         channel_image.alt = "< Channel icon >";
     }
     let emoji = document.getElementById("emoji");
+    let _emoji_lock = false;
     emoji.addEventListener("click", () => {
+        if (_emoji_lock)
+            return;
         let col = rand_choice(EMOJI_COLORS), n = rand_choice(EMOJI_NAMES);
         emoji.src = `bluemoji/${col}/${n}.png`;
         emoji.alt = `< [${col.toUpperCase()} - ${n.charAt(0).toUpperCase() + n.replace(/-/g, " ").substring(1)}] Emoji Shuffler >`;
+        _emoji_lock = true;
+    });
+    emoji.addEventListener("load", () => {
+        setTimeout(() => {
+            _emoji_lock = false;
+        }, 500);
     });
 });
 function is_april_fools() {
