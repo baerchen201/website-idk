@@ -228,7 +228,7 @@ youtube-track > a > span:nth-of-type(2) {
   align-items: center;
   color: #000;
 }
-.textmongus-copy:nth-last-of-type(1):disabled::before {
+.textmongus-copy-symbol:disabled::before {
   content: "✔";
 }
 
