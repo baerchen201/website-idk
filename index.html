@@ -251,7 +251,7 @@
         font-size: 50px;
         font-family: google_r, roboto_r, ubuntu_r, monospace, system-ui;
       "
-      onclick="document.body.classList.add('nuke');document.getElementById('nuke').play();window.onbeforeunload=()=>'Nuke in progress...'"
+      onclick="document.body.classList.add('nuke');document.getElementById('nuke').play();window.onbeforeunload=()=>'Nuke in progress...';window.onkeydown=()=>{event.preventDefault();return false};this.disabled=true"
     >
       LAUNCH NUCLEAR MISSILE
     </button>
