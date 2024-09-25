@@ -4,15 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>baer1's 404 website</title>
+    <style>
+      body {
+        background: #000;
+        color: #fff;
+        font-family: "Comic Sans MS", "Roboto", "Ubuntu", system-ui;
+        font-size: xx-large;
+      }
+
+      video {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: fill;
+      }
+
+      body > span {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #000a;
+      }
+
+      a {
+        --color: rgb(238, 0, 218);
+        font-size: 60px;
+        color: var(--color);
+        text-decoration: none;
+      }
+      a > span {
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        background: linear-gradient(
+          to right,
+          #f0f,
+          #f00,
+          #ff0,
+          #f00,
+          #ff0,
+          #0f0,
+          #0ff,
+          #00f,
+          #f0f
+        );
+        background-size: 200%;
+        background-position: 0;
+        background-clip: text;
+        -webkit-background-clip: text;
+        transition: background-position 100ms;
+      }
+      a:hover > span {
+        background-position: 100%;
+      }
+    </style>
   </head>
-  <body
-    style="
-      background: #000;
-      color: #fff;
-      font-family: 'Comic Sans MS', 'Roboto', 'Ubuntu', system-ui;
-      font-size: xx-large;
-    "
-  >
+  <body>
     <script>
       (function _() {
         try {
@@ -32,56 +82,13 @@
       src="vid/crash.mp4"
       preload="auto"
       onended="this.classList.add('a')"
-      style="
-        position: fixed;
-        inset: 0;
-        width: 100vw;
-        height: 100vh;
-        object-fit: fill;
-      "
     ></video>
-    <span
-      style="
-        position: fixed;
-        inset: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: #000a;
-      "
-    >
+    <span>
       <span style="font-size: 100px; font-weight: 900">404</span>
       <span style="font-size: 70px; font-weight: 600">not foun</span>
-      <a
-        href="index.html"
-        style="
-          --color: rgb(238, 0, 218);
-          font-size: 60px;
-          color: var(--color);
-          text-decoration: none;
-        "
-      >
+      <a href="index.html">
         &lt;
-        <span
-          style="
-            background: linear-gradient(
-              to right,
-              #f0f,
-              #f00,
-              #ff0,
-              #0f0,
-              #0ff,
-              #00f,
-              #f0f
-            );
-            -webkit-text-fill-color: transparent;
-            background-clip: none;
-            -webkit-background-clip: text;
-          "
-        >
-          back to main</span
-        ></a
+        <span>back to main</span></a
       >
     </span>
   </body>
