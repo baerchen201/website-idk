@@ -150,8 +150,8 @@ window.addEventListener("load", () => {
     let col: string = rand_choice(EMOJI_COLORS),
       n: string = rand_choice(EMOJI_NAMES);
     emoji.src = `bluemoji/${col}/${n}.png`;
-    emoji.alt = `< [${col.toUpperCase()} ${
-      n.charAt(0).toUpperCase() + n.substring(1)
+    emoji.alt = `< [${col.toUpperCase()} - ${
+      n.charAt(0).toUpperCase() + n.replace(/-/g, " ").substring(1)
     }] Emoji Shuffler >`;
   });
 });

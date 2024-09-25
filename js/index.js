@@ -134,7 +134,7 @@ window.addEventListener("load", () => {
     emoji.addEventListener("click", () => {
         let col = rand_choice(EMOJI_COLORS), n = rand_choice(EMOJI_NAMES);
         emoji.src = `bluemoji/${col}/${n}.png`;
-        emoji.alt = `< [${col.toUpperCase()} ${n.charAt(0).toUpperCase() + n.substring(1)}] Emoji Shuffler >`;
+        emoji.alt = `< [${col.toUpperCase()} - ${n.charAt(0).toUpperCase() + n.replace(/-/g, " ").substring(1)}] Emoji Shuffler >`;
     });
 });
 function is_april_fools() {
