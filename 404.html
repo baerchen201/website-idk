@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>baer1's 404 website</title>
+  </head>
+  <body
+    style="
+      background: #000;
+      color: #fff;
+      font-family: 'Comic Sans MS', 'Roboto', 'Ubuntu', system-ui;
+      font-size: xx-large;
+    "
+  >
+    <script>
+      (function _() {
+        try {
+          document
+            .querySelector("video")
+            .play()
+            .catch(() => {
+              setTimeout(_, 50);
+            });
+        } catch (e) {
+          console.error(e);
+          setTimeout(_, 100);
+        }
+      })();
+    </script>
+    <video
+      src="vid/crash.mp4"
+      preload="auto"
+      onended="this.classList.add('a')"
+      style="
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: fill;
+      "
+    ></video>
+    <span
+      style="
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #000a;
+      "
+    >
+      <span style="font-size: 100px; font-weight: 900">404</span>
+      <span style="font-size: 70px; font-weight: 600">not foun</span>
+      <a href="index.html" style="font-size: 60px; color: rgb(238, 0, 218)"
+        >back to main</a
+      >
+    </span>
+  </body>
+</html>
