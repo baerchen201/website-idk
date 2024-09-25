@@ -266,3 +266,6 @@ youtube-track > a > span:nth-of-type(2) {
   width: 512px;
   cursor: pointer;
 }
+#emoji.lock {
+  cursor: wait;
+}
