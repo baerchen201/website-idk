@@ -4,31 +4,33 @@ class AmongUsBg extends HTMLElement {
   }
 
   connectedCallback() {
-    console.log(this);
+    for (
+      let i = 0;
+      i < 75; //* Number of stars here
+      i++
+    )
+      setTimeout(() => {
+        this.createStar();
+      }, Math.floor(Math.random() * 50 + 25) * i);
+  }
 
-    let free = 125;
-    let _ = () => {
-      if (free > 0) {
-        free--;
-        let star: AmongUsStar = document.createElement(
-          "amongus-star"
-        ) as AmongUsStar;
-        console.log(star);
-        star
-          ._bg(
-            Math.floor(Math.random() * 2250 + 3000),
-            Math.floor(Math.random() * 50 + 50),
-            Math.floor(Math.random() * 2250 + 3000)
-          )
-          .then(() => {
-            free++;
-            star.remove();
-          });
-        this.appendChild(star);
-      }
-      setTimeout(_, Math.floor(Math.random() * 50 + 50));
-    };
-    _();
+  createStar() {
+    let star: AmongUsStar = document.createElement(
+      "amongus-star"
+    ) as AmongUsStar;
+    star
+      ._bg(
+        Math.floor(Math.random() * 2250 + 3000),
+        Math.floor(Math.random() * 50 + 50),
+        Math.floor(Math.random() * 2250 + 3000)
+      )
+      .then(() => {
+        setTimeout(() => {
+          this.createStar();
+        }, Math.floor(Math.random() * 200 + 50));
+        star.remove();
+      });
+    this.appendChild(star);
   }
 }
 

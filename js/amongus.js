@@ -4,24 +4,23 @@ class AmongUsBg extends HTMLElement {
         super();
     }
     connectedCallback() {
-        console.log(this);
-        let free = 125;
-        let _ = () => {
-            if (free > 0) {
-                free--;
-                let star = document.createElement("amongus-star");
-                console.log(star);
-                star
-                    ._bg(Math.floor(Math.random() * 2250 + 3000), Math.floor(Math.random() * 50 + 50), Math.floor(Math.random() * 2250 + 3000))
-                    .then(() => {
-                    free++;
-                    star.remove();
-                });
-                this.appendChild(star);
-            }
-            setTimeout(_, Math.floor(Math.random() * 50 + 50));
-        };
-        _();
+        for (let i = 0; i < 75; //* Number of stars here
+         i++)
+            setTimeout(() => {
+                this.createStar();
+            }, Math.floor(Math.random() * 50 + 25) * i);
+    }
+    createStar() {
+        let star = document.createElement("amongus-star");
+        star
+            ._bg(Math.floor(Math.random() * 2250 + 3000), Math.floor(Math.random() * 50 + 50), Math.floor(Math.random() * 2250 + 3000))
+            .then(() => {
+            setTimeout(() => {
+                this.createStar();
+            }, Math.floor(Math.random() * 200 + 50));
+            star.remove();
+        });
+        this.appendChild(star);
     }
 }
 class AmongUsStar extends HTMLElement {
