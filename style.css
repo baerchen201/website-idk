@@ -260,3 +260,9 @@ youtube-track > a > span:nth-of-type(2) {
   z-index: 65536;
   pointer-events: all;
 }
+
+#emoji {
+  height: 512px;
+  width: 512px;
+  cursor: pointer;
+}
