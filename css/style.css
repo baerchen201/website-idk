@@ -274,3 +274,14 @@ youtube-track > a > span:nth-of-type(2) {
   content-visibility: hidden;
   background-size: cover;
 }
+#emoji-history {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
+
+  max-width: 600px;
+}
+#emoji-history > img {
+  width: 100px;
+}

@@ -146,14 +146,47 @@ window.addEventListener("load", () => {
   }
 
   let emoji = document.getElementById("emoji") as HTMLImageElement;
-  emoji.addEventListener("click", () => {
+  let emoji_history = document.getElementById(
+    "emoji-history"
+  ) as HTMLDivElement;
+
+  let _override: { src: string; alt: string } | null = null;
+  emoji_history.addEventListener("click", (e: MouseEvent) => {
+    if (!e.target || (e.target as HTMLElement).tagName.toLowerCase() != "img")
+      return console.log("Invalid element clicked", e.target);
+    let t: HTMLImageElement = e.target as HTMLImageElement;
+    _override = { src: t.src, alt: t.alt };
+    emoji.dispatchEvent(new MouseEvent("click", {}));
+  });
+  emoji.addEventListener("click", (e: MouseEvent) => {
     if (emoji.classList.contains("lock")) return;
+
+    if (e.isTrusted) {
+      let h = document.createElement("img");
+      h.src = emoji.src;
+      h.alt = emoji.alt;
+      for (let i = 0; i < emoji_history.children.length; i++) {
+        try {
+          const e = emoji_history.children[i] as HTMLImageElement;
+          if (e.src == h.src) e.remove();
+        } catch {}
+      }
+      emoji_history.appendChild(h);
+    }
+
     let col: string = rand_choice(EMOJI_COLORS),
       n: string = rand_choice(EMOJI_NAMES);
-    emoji.src = `bluemoji/${col}/${n}.png`;
-    emoji.alt = `< [${col.toUpperCase()} - ${
-      n.charAt(0).toUpperCase() + n.replace(/-/g, " ").substring(1)
-    }] Emoji Shuffler >`;
+    if (!_override) {
+      emoji.src = `bluemoji/${col}/${n}.png`;
+      emoji.alt = `< [${col.toUpperCase()} - ${
+        n.charAt(0).toUpperCase() + n.replace(/-/g, " ").substring(1)
+      }] Emoji Shuffler >`;
+    } else {
+      emoji.src = _override.src;
+      emoji.alt = _override.alt;
+      _override = null;
+      return;
+    }
     emoji.classList.add("lock");
   });
   emoji.addEventListener("load", () => {

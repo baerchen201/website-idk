@@ -131,12 +131,43 @@ window.addEventListener("load", () => {
         channel_image.alt = "< Channel icon >";
     }
     let emoji = document.getElementById("emoji");
-    emoji.addEventListener("click", () => {
+    let emoji_history = document.getElementById("emoji-history");
+    let _override = null;
+    emoji_history.addEventListener("click", (e) => {
+        if (!e.target || e.target.tagName.toLowerCase() != "img")
+            return console.log("Invalid element clicked", e.target);
+        let t = e.target;
+        _override = { src: t.src, alt: t.alt };
+        emoji.dispatchEvent(new MouseEvent("click", {}));
+    });
+    emoji.addEventListener("click", (e) => {
         if (emoji.classList.contains("lock"))
             return;
+        if (e.isTrusted) {
+            let h = document.createElement("img");
+            h.src = emoji.src;
+            h.alt = emoji.alt;
+            for (let i = 0; i < emoji_history.children.length; i++) {
+                try {
+                    const e = emoji_history.children[i];
+                    if (e.src == h.src)
+                        e.remove();
+                }
+                catch (_a) { }
+            }
+            emoji_history.appendChild(h);
+        }
         let col = rand_choice(EMOJI_COLORS), n = rand_choice(EMOJI_NAMES);
-        emoji.src = `bluemoji/${col}/${n}.png`;
-        emoji.alt = `< [${col.toUpperCase()} - ${n.charAt(0).toUpperCase() + n.replace(/-/g, " ").substring(1)}] Emoji Shuffler >`;
+        if (!_override) {
+            emoji.src = `bluemoji/${col}/${n}.png`;
+            emoji.alt = `< [${col.toUpperCase()} - ${n.charAt(0).toUpperCase() + n.replace(/-/g, " ").substring(1)}] Emoji Shuffler >`;
+        }
+        else {
+            emoji.src = _override.src;
+            emoji.alt = _override.alt;
+            _override = null;
+            return;
+        }
         emoji.classList.add("lock");
     });
     emoji.addEventListener("load", () => {
