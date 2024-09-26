@@ -159,7 +159,7 @@ window.addEventListener("load", () => {
   emoji.addEventListener("load", () => {
     setTimeout(() => {
       emoji.classList.remove("lock");
-    }, 500);
+    }, 20);
   });
   emoji.dispatchEvent(new MouseEvent("click", {}));
 });
