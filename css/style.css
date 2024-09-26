@@ -29,6 +29,10 @@ html {
   align-items: center;
   background: #171718;
 }
+html.mobile {
+  display: initial;
+  overflow-x: hidden;
+}
 body {
   position: relative;
   display: flex;
@@ -39,6 +43,10 @@ body {
   padding: 0 25px;
   color: #fff;
   font-family: ubuntu_l, system-ui;
+}
+.mobile body {
+  width: calc(100% - 15px * 2 - 8px * 2);
+  padding: 15px;
 }
 h2 {
   font-family: ubuntu_r, system-ui;
@@ -127,6 +135,12 @@ youtube-video > a > span:nth-of-type(2) {
   width: 50%;
   transform: translateX(50%);
 }
+.mobile #videos {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  gap: 8px;
+}
 
 #music {
   display: flex;
@@ -152,6 +166,10 @@ youtube-track > a {
   color: #fff;
   text-decoration: none;
   font-family: roboto_r;
+}
+.mobile youtube-track > a {
+  grid-template-rows: minmax(calc(var(--cover-size) / 2));
+  padding: 8px 1px;
 }
 youtube-track > a > img {
   grid-row: 1 / 3;

@@ -76,6 +76,8 @@ class youtubeTrack extends HTMLElement {
 window.customElements.define("youtube-video", youtubeVideo);
 window.customElements.define("youtube-track", youtubeTrack);
 window.addEventListener("load", () => {
+    document.children[0].classList.add("mobile");
+    const MOBILE = true;
     document.getElementById("google").addEventListener("keypress", (e) => {
         console.log(e);
         if (e.key == "Enter") {
@@ -120,7 +122,7 @@ window.addEventListener("load", () => {
             e.target = "_blank";
     }
     let videos = document.getElementById("videos");
-    if (videos.children.length % 2 != 0)
+    if (!MOBILE && videos.children.length % 2 != 0)
         videos.classList.add("odd");
     let _v = videos.children;
     for (let i = 0; i < _v.length; i++) {
