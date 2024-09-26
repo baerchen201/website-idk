@@ -265,7 +265,12 @@ youtube-track > a > span:nth-of-type(2) {
   height: 512px;
   width: 512px;
   cursor: pointer;
+  background: url("../img/load.gif"); /* TODO: replace this horiffic abomination of a loading indicator */
+  background-size: 0;
+  background-repeat: no-repeat;
 }
 #emoji.lock {
   cursor: wait;
+  content-visibility: hidden;
+  background-size: cover;
 }
