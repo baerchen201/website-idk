@@ -95,10 +95,12 @@ youtube-video > a {
   color: #fff;
   font-family: roboto_r, system-ui;
   text-decoration: none;
+  max-width: 100%;
 }
 youtube-video > a > img:nth-of-type(1) {
+  max-height: 210px;
+  max-width: 100%;
   aspect-ratio: 1000 / 563;
-  width: 100%;
   grid-area: thumb;
 }
 youtube-video > a > img:nth-of-type(2) {
@@ -112,6 +114,20 @@ youtube-video > a > span:nth-of-type(1) {
   font-size: 20px;
   grid-area: title;
   font-family: roboto_b;
+  overflow-x: hidden;
+  position: relative;
+}
+.mobile youtube-video > a > span:nth-of-type(1) {
+  text-wrap: nowrap;
+}
+.mobile youtube-video > a > span:nth-of-type(1)::after {
+  content: "";
+  background: linear-gradient(to right, #0000, rgb(8, 8, 8));
+  position: absolute;
+  right: 0;
+  width: 30px;
+  top: 0;
+  bottom: 0;
 }
 youtube-video > a > span:nth-of-type(2) {
   font-size: 14px;
