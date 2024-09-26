@@ -119,6 +119,7 @@ youtube-video > a > span:nth-of-type(1) {
 }
 .mobile youtube-video > a > span:nth-of-type(1) {
   text-wrap: nowrap;
+  max-width: calc(370px - var(--c-img-size));
 }
 .mobile youtube-video > a > span:nth-of-type(1)::after {
   content: "";
@@ -300,6 +301,10 @@ youtube-track > a > span:nth-of-type(2) {
   width: 512px;
   cursor: pointer;
   transition: opacity 10ms;
+}
+.mobile #emoji {
+  width: 90%;
+  height: 90%;
 }
 #emoji.lock {
   cursor: wait;

@@ -76,6 +76,7 @@ class youtubeTrack extends HTMLElement {
 window.customElements.define("youtube-video", youtubeVideo);
 window.customElements.define("youtube-track", youtubeTrack);
 window.addEventListener("load", () => {
+    // TODO: Add mobile detection
     document.children[0].classList.add("mobile");
     const MOBILE = true;
     document.getElementById("google").addEventListener("keypress", (e) => {
