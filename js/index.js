@@ -209,7 +209,6 @@ const EMOJI_NAMES = [
     "ok-sign",
     "ooh-face",
     "oops-i-did-it-again",
-    "out.txt",
     "party",
     "pearly-whites-smiley",
     "pleading-face",
