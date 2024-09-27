@@ -1,0 +1,26 @@
+amongus-bg {
+  display: inline-block;
+  background: #000;
+  min-height: 200px;
+  min-width: 350px;
+}
+
+amongus-star {
+  display: inline-block;
+  background: #fff;
+  height: 7px;
+  width: 7px;
+  position: absolute;
+  opacity: 0;
+  border-radius: 35%;
+}
+
+amongus-amogus {
+  display: inline-block;
+  background-image: url("../img/Red_Amogus.png"); /* TODO: Add other colors/variants */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  z-index: 2;
+}

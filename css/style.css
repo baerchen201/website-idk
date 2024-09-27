@@ -29,6 +29,11 @@ html {
   align-items: center;
   background: #171718;
 }
+amongus-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+}
 body {
   position: relative;
   display: flex;
