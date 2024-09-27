@@ -62,7 +62,7 @@ class youtubeTrack extends HTMLElement {
       throw new Error(
         `Empty attribute data-id for youtube-track object ${this}`
       );
-    if (!data_image) data_image = "img/youtube-thumbnail.svg"; //TODO: Replace with proper default image/album-art
+    if (!data_image) data_image = "img/youtube-thumbnail.svg";
     if (!data_title) data_title = "";
     if (!data_composer) data_composer = "";
 
