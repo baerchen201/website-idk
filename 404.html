@@ -60,18 +60,42 @@
       a:hover > span {
         background-position: 100%;
       }
+
+      div {
+        position: fixed;
+        top: 8px;
+        left: 8px;
+        font-size: x-large;
+        color: #fff;
+        background: #c33;
+        border: 2px solid #f00;
+        border-radius: 8px;
+      }
+      .p > div {
+        display: none;
+      }
     </style>
   </head>
   <body>
     <script>
+      let i = 10;
       (function _() {
         try {
-          document
-            .querySelector("video")
-            .play()
-            .catch(() => {
+          let _v = document.querySelector("video");
+          _v.play().catch(() => {
+            _v.muted = true;
+            _v.play().catch(() => {
+              _v.muted = false;
+              i--;
+              if (i == 0) {
+                let _p = document.createElement("div");
+                _p.innerText =
+                  "Your browser blocks autoplaying all media,\nwhich makes this site very boring.\nPlease click anywhere on this website to play the funny\n[ HEADPHONE WARNING ]";
+                document.body.appendChild(_p);
+              }
               setTimeout(_, 50);
             });
+          });
         } catch (e) {
           console.error(e);
           setTimeout(_, 100);
@@ -82,6 +106,7 @@
       src="vid/crash.mp4"
       preload="auto"
       onended="this.classList.add('a')"
+      onplay="document.body.classList.add('p')"
     ></video>
     <span>
       <span style="font-size: 100px; font-weight: 900">404</span>
