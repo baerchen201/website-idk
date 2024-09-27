@@ -12,4 +12,5 @@ amongus-star {
   width: 7px;
   position: absolute;
   opacity: 0;
+  border-radius: 35%;
 }

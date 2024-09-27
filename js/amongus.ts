@@ -21,7 +21,7 @@ class AmongUsBg extends HTMLElement {
     star
       ._bg(
         Math.floor(Math.random() * 2250 + 3000),
-        Math.floor(Math.random() * 50 + 50),
+        Math.floor(Math.random() * 1500 + 500),
         Math.floor(Math.random() * 2250 + 3000)
       )
       .then(() => {
