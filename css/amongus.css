@@ -16,10 +16,11 @@ amongus-star {
 }
 
 amongus-amogus {
-  --scale: 50px;
   display: inline-block;
-  background: #f00;
+  background-image: url("../img/Red_Amogus.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   position: absolute;
-  height: var(--scale);
-  width: var(--scale);
+  z-index: 2;
 }

@@ -29,7 +29,9 @@ class AmongUsBg extends HTMLElement {
     }
     createAmogus() {
         let amogus = document.createElement("amongus-amogus");
-        amogus._bg(1.5, "x-").then(() => {
+        amogus
+            ._bg(1.5, Math.random() * 100 + 50, "x-", (Math.random() * 1 + 0.2) * (Math.random() < 0.4 ? -1 : 1))
+            .then(() => {
             setTimeout(() => {
                 this.createAmogus();
             }, Math.floor(Math.random() * 3000 + 500));
@@ -71,32 +73,46 @@ class AmongUsAmogus extends HTMLElement {
     constructor() {
         super();
     }
-    _bg(speed = 1, direction = "x+") {
+    _bg(speed = 1, scale = 100, direction = "x+", rspeed = 1) {
         this.style.top =
             direction.charAt(0) == "x"
-                ? `calc(${Math.random() * 100}% - var(--scale)/2)`
+                ? `calc(${Math.random() * 100}% - ${scale / 2}px)`
                 : "";
         this.style.left =
             direction.charAt(0) == "y"
-                ? `calc(${Math.random() * 100}% - var(--scale)/2)`
+                ? `calc(${Math.random() * 100}% - ${scale / 2}px)`
                 : "";
-        return this.anim(speed, direction);
+        return this.anim(speed, scale, direction, rspeed);
     }
-    anim(speed = 1, direction = "x+") {
+    anim(speed = 1, scale = 100, direction = "x+", rspeed = 1) {
         return new Promise((resolve, reject) => {
+            this.style.height = this.style.width = `${scale}px`;
+            this.animate([
+                {
+                    transform: "rotate(0)",
+                },
+                {
+                    transform: "rotate(360deg)",
+                },
+            ], {
+                duration: Math.floor(Math.abs((Math.random() * 1250 + 1250) / rspeed)),
+                iterations: Infinity,
+                direction: rspeed > 0 ? "normal" : "reverse",
+            });
+            let _b = `${-scale}px`;
             let _anim;
             switch (direction) {
                 case "x+":
-                    _anim = [{ left: "calc(-1 * var(--scale))" }, { left: "100%" }];
+                    _anim = [{ left: _b }, { left: "100%" }];
                     break;
                 case "x-":
-                    _anim = [{ left: "100%" }, { left: "calc(-1 * var(--scale))" }];
+                    _anim = [{ left: "100%" }, { left: _b }];
                     break;
                 case "y+":
-                    _anim = [{ top: "calc(-1 * var(--scale))" }, { top: "100%" }];
+                    _anim = [{ top: _b }, { top: "100%" }];
                     break;
                 case "y-":
-                    _anim = [{ top: "100%" }, { top: "calc(-1 * var(--scale))" }];
+                    _anim = [{ top: "100%" }, { top: _b }];
                     break;
                 default:
                     _anim = [];
