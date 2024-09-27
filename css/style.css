@@ -3,7 +3,7 @@
   src: local("Ubuntu Regular"), url("font/Ubuntu/Ubuntu-Regular.ttf");
 }
 @font-face {
-  font-family: ubuntu_l; /* Ubutul:> */
+  font-family: ubuntu_l;
   src: local("Ubuntu Light"), url("font/Ubuntu/Ubuntu-Light.ttf");
 }
 @font-face {
