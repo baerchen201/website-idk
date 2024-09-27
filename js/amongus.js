@@ -30,7 +30,7 @@ class AmongUsBg extends HTMLElement {
     createAmogus() {
         let amogus = document.createElement("amongus-amogus");
         amogus
-            ._bg(1.5, Math.random() * 100 + 50, "x-", (Math.random() * 1 + 0.2) * (Math.random() < 0.4 ? -1 : 1))
+            ._bg(1.5, Math.random() * 100 + 50, "x-", (Math.random() * 0.75 + 0.2) * (Math.random() < 0.4 ? -1 : 1))
             .then(() => {
             setTimeout(() => {
                 this.createAmogus();
