@@ -87,9 +87,9 @@ window.customElements.define("youtube-video", youtubeVideo);
 window.customElements.define("youtube-track", youtubeTrack);
 
 window.addEventListener("load", () => {
-  // TODO: Add mobile detection
-  document.children[0].classList.add("mobile");
-  const MOBILE: boolean = true;
+  // TODO: Add *proper* mobile detection
+  const MOBILE: boolean = new URLSearchParams(location.search).has("mobile");
+  if (MOBILE) document.children[0].classList.add("mobile");
 
   document.getElementById("google")!.addEventListener("keypress", (e) => {
     console.log(e);
