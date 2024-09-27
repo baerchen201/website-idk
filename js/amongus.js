@@ -4,11 +4,16 @@ class AmongUsBg extends HTMLElement {
         super();
     }
     connectedCallback() {
-        for (let i = 0; i < 75; //* Number of stars here
+        for (let i = 0; i < 50; //* Number of stars here
          i++)
             setTimeout(() => {
                 this.createStar();
             }, Math.floor(Math.random() * 50 + 25) * i);
+        for (let i = 0; i < 7; //* Limit of amogi here
+         i++)
+            setTimeout(() => {
+                this.createAmogus();
+            }, Math.floor(Math.random() * 10000 + 5000) * i);
     }
     createStar() {
         let star = document.createElement("amongus-star");
@@ -21,6 +26,16 @@ class AmongUsBg extends HTMLElement {
             star.remove();
         });
         this.appendChild(star);
+    }
+    createAmogus() {
+        let amogus = document.createElement("amongus-amogus");
+        amogus._bg(1.5, "x-").then(() => {
+            setTimeout(() => {
+                this.createAmogus();
+            }, Math.floor(Math.random() * 3000 + 500));
+            amogus.remove();
+        });
+        this.appendChild(amogus);
     }
 }
 class AmongUsStar extends HTMLElement {
@@ -52,5 +67,50 @@ class AmongUsStar extends HTMLElement {
         });
     }
 }
+class AmongUsAmogus extends HTMLElement {
+    constructor() {
+        super();
+    }
+    _bg(speed = 1, direction = "x+") {
+        this.style.top =
+            direction.charAt(0) == "x"
+                ? `calc(${Math.random() * 100}% - var(--scale)/2)`
+                : "";
+        this.style.left =
+            direction.charAt(0) == "y"
+                ? `calc(${Math.random() * 100}% - var(--scale)/2)`
+                : "";
+        return this.anim(speed, direction);
+    }
+    anim(speed = 1, direction = "x+") {
+        return new Promise((resolve, reject) => {
+            let _anim;
+            switch (direction) {
+                case "x+":
+                    _anim = [{ left: "calc(-1 * var(--scale))" }, { left: "100%" }];
+                    break;
+                case "x-":
+                    _anim = [{ left: "100%" }, { left: "calc(-1 * var(--scale))" }];
+                    break;
+                case "y+":
+                    _anim = [{ top: "calc(-1 * var(--scale))" }, { top: "100%" }];
+                    break;
+                case "y-":
+                    _anim = [{ top: "100%" }, { top: "calc(-1 * var(--scale))" }];
+                    break;
+                default:
+                    _anim = [];
+                    break;
+            }
+            this.animate(_anim, {
+                duration: Math.floor((Math.random() * 50000 + 30000) / speed),
+                fill: "forwards",
+            }).addEventListener("finish", () => {
+                resolve();
+            });
+        });
+    }
+}
 window.customElements.define("amongus-bg", AmongUsBg);
 window.customElements.define("amongus-star", AmongUsStar);
+window.customElements.define("amongus-amogus", AmongUsAmogus);

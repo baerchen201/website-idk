@@ -14,3 +14,12 @@ amongus-star {
   opacity: 0;
   border-radius: 35%;
 }
+
+amongus-amogus {
+  --scale: 50px;
+  display: inline-block;
+  background: #f00;
+  position: absolute;
+  height: var(--scale);
+  width: var(--scale);
+}
