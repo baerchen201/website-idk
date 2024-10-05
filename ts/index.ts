@@ -232,7 +232,7 @@ window.addEventListener("load", () => {
             })();
     }, frametime * 2);
     explosion.style.display = "";
-    console.log("explode sound");
+    playsound("other/deltarune-explosion/deltarune-explosion.mp3");
     secondarybtn.innerText = "revive";
     secondarybtn.disabled = true;
   });
@@ -242,9 +242,9 @@ window.addEventListener("load", () => {
         (() => {
           secondarybtn.innerText = "meow";
           explosion.style.display = "none";
-          console.log("pop sound");
+          playsound("aud/pop-long.wav");
         })())
-      : console.log("meow sound");
+      : playsound("aud/mewo.wav");
   });
 });
 
@@ -258,6 +258,13 @@ function is_april_fools(): boolean {
 
 function rand_choice(list: any[]) {
   return list[Math.floor(Math.random() * list.length)];
+}
+
+function playsound(src: string): HTMLAudioElement {
+  let aud = document.createElement("audio");
+  aud.src = src;
+  aud.play();
+  return aud;
 }
 
 const EMOJI_NAMES: string[] = [
