@@ -213,26 +213,39 @@ window.addEventListener("load", () => {
     ) as HTMLButtonElement,
     secondarybtn: HTMLButtonElement = catgame.querySelectorAll(
       "button"
-    )[1] as HTMLButtonElement;
+    )[1] as HTMLButtonElement,
+    aud_explode: HTMLAudioElement = document.getElementById(
+      "aud-explode"
+    ) as HTMLAudioElement,
+    aud_mewo: HTMLAudioElement = document.getElementById(
+      "aud-mewo"
+    ) as HTMLAudioElement,
+    aud_pop: HTMLAudioElement = document.getElementById(
+      "aud-pop"
+    ) as HTMLAudioElement;
 
   let explosion_timeout: number | undefined;
   explodebtn.addEventListener("click", () => {
+    explosion.onload = () => {};
     clearTimeout(explosion_timeout);
     let frame = 0;
     explosion_timeout = setTimeout(function _() {
       frame += 2;
       explosion.src = `other/deltarune-explosion/${frame}.png`;
       if (frame > 6) cat.style.display = "none";
-      explosion_timeout =
-        frame < 18
-          ? setTimeout(_, frametime * 2)
-          : (() => {
-              secondarybtn.disabled = false;
-              return undefined;
-            })();
+      explosion_timeout = undefined;
+      explosion.onload = () => {
+        explosion_timeout =
+          frame < 18
+            ? setTimeout(_, frametime * 2)
+            : (() => {
+                secondarybtn.disabled = false;
+                return undefined;
+              })();
+      };
     }, frametime * 2);
     explosion.style.display = "";
-    playsound("other/deltarune-explosion/deltarune-explosion.mp3");
+    playaudio(aud_explode);
     secondarybtn.innerText = "revive";
     secondarybtn.disabled = true;
   });
@@ -242,9 +255,9 @@ window.addEventListener("load", () => {
         (() => {
           secondarybtn.innerText = "meow";
           explosion.style.display = "none";
-          playsound("aud/pop-long.wav");
+          playaudio(aud_pop);
         })())
-      : playsound("aud/mewo.wav");
+      : playaudio(aud_mewo);
   });
 });
 
@@ -265,6 +278,12 @@ function playsound(src: string): HTMLAudioElement {
   aud.src = src;
   aud.play();
   return aud;
+}
+
+function playaudio(aud: HTMLAudioElement): void {
+  aud.pause();
+  aud.currentTime = 0;
+  aud.play();
 }
 
 const EMOJI_NAMES: string[] = [
