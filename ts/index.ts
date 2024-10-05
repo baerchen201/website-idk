@@ -269,7 +269,7 @@ function is_april_fools(): boolean {
   );
 }
 
-function rand_choice(list: any[]) {
+function rand_choice(list: any[]): any {
   return list[Math.floor(Math.random() * list.length)];
 }
 
