@@ -326,3 +326,28 @@ youtube-track > a > span:nth-of-type(2) {
 #emoji-history > img {
   width: 100px;
 }
+
+#cat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#cat > div {
+  position: relative;
+  width: 200px;
+  height: 300px;
+}
+#cat > div > img {
+  position: absolute;
+  width: 100%;
+}
+#cat > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 200%;
+}
+#cat button {
+  font-size: 30px;
+  padding: 8px;
+}

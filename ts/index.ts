@@ -199,6 +199,53 @@ window.addEventListener("load", () => {
     }, 20);
   });
   emoji.dispatchEvent(new MouseEvent("click", {}));
+
+  const frametime: number = 45;
+  let catgame: HTMLDivElement = document.getElementById(
+    "cat"
+  ) as HTMLDivElement;
+  let cat: HTMLImageElement = catgame.querySelector("img") as HTMLImageElement,
+    explosion: HTMLImageElement = catgame.querySelectorAll(
+      "img"
+    )[1] as HTMLImageElement,
+    explodebtn: HTMLButtonElement = catgame.querySelector(
+      "button"
+    ) as HTMLButtonElement,
+    secondarybtn: HTMLButtonElement = catgame.querySelectorAll(
+      "button"
+    )[1] as HTMLButtonElement;
+
+  let explosion_timeout: number | undefined;
+  explodebtn.addEventListener("click", () => {
+    clearTimeout(explosion_timeout);
+    let frame = 0;
+    explosion_timeout = setTimeout(function _() {
+      frame += 2;
+      explosion.src = `other/deltarune-explosion/${frame}.png`;
+      if (frame > 6) cat.style.display = "none";
+      explosion_timeout =
+        frame < 18
+          ? setTimeout(_, frametime * 2)
+          : (() => {
+              secondarybtn.disabled = false;
+              return undefined;
+            })();
+    }, frametime * 2);
+    explosion.style.display = "";
+    console.log("explode sound");
+    secondarybtn.innerText = "revive";
+    secondarybtn.disabled = true;
+  });
+  secondarybtn.addEventListener("click", () => {
+    cat.style.display == "none"
+      ? ((cat.style.display = ""),
+        (() => {
+          secondarybtn.innerText = "meow";
+          explosion.style.display = "none";
+          console.log("pop sound");
+        })())
+      : console.log("meow sound");
+  });
 });
 
 function is_april_fools(): boolean {
