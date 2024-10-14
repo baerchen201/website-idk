@@ -351,3 +351,7 @@ youtube-track > a > span:nth-of-type(2) {
   font-size: 30px;
   padding: 8px;
 }
+
+.cursed {
+  width: 400px;
+}
